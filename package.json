@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/moul/node-onlinelabs/issues"
   },
-  "homepage": "https://github.com/moul/node-onlinelabs"
+  "homepage": "https://github.com/moul/node-onlinelabs",
+  "dependencies": {
+    "axios": "^0.5.0",
+    "rc": "^0.5.5"
+  }
 }
