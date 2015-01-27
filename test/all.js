@@ -1,7 +1,8 @@
 "use strict";
 
-var Assert = require("assert");
-var Client = require("..");
+var assert = require("assert"),
+    debug = require("debug")("tests"),
+    Client = require("..");
 
 describe("[client]", function() {
   var client;
@@ -16,13 +17,13 @@ describe("[client]", function() {
   });
 
   it("should successfully execute GET /", function(next) {
-    client.get("/")
-      .then(function(response) {
+    client.get("/servers")
+      .then(function(res) {
+        debug('res', res);
         next();
-      })
-      .catch(function(response) {
-        Assert.equal(0, 1);
-        next();
+      }, function(err) {
+        debug('err', err);
+        assert();
       });
   });
 });
