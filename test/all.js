@@ -6,18 +6,13 @@ var assert = require("assert"),
 
 describe("[client]", function() {
   var client;
-  var token = "dummy-token";
 
   beforeEach(function() {
     client = new Client();
-    // client.authenticate({
-    //   type: "oauth",
-    //   token: token
-    // });
   });
 
   it("should successfully execute GET /", function(next) {
-    client.get("/servers")
+    client.get("/")
       .then(function(res) {
         debug('res', res);
         next();
@@ -26,4 +21,17 @@ describe("[client]", function() {
         assert();
       });
   });
+
+  /*
+  it("should fetch the servers list", function(next) {
+    client.get("/servers")
+      .then(function(res) {
+        debug('res', res);
+        next();
+      }, function(err) {
+        debug('err', err);
+      }, function(progress) {
+      });
+  });
+   */
 });
