@@ -48,7 +48,9 @@ suite("[client]", function() {
         function(res) {
           inspect('res', res);
           try {
-            // (res.body....).should.equal(0);
+            (res.statusCode).should.equal(200);
+            (res.headers['content-type']).should.equal('application/json');
+            (res.body.api).should.equal('api-compute');
             done();
           } catch (e) {
             done(e);
@@ -65,7 +67,9 @@ suite("[client]", function() {
         function(res) {
           inspect('res', res);
           try {
-            // (res.body....).should.equal(0);
+            (res.statusCode).should.equal(401);
+            (res.headers['content-type']).should.equal('application/json');
+            (res.body.type).should.equal('invalid_auth');
             done();
           } catch (e) {
             done(e);
