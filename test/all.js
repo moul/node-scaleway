@@ -23,7 +23,8 @@ suite('#config', function() {
   });
   test('should have an url for api_endpoint', function() {
     var client = new Client();
-    client.config.api_endpoint.should.contains('https://');
+    client.config.api_endpoint.should.contains('http');
+    client.config.api_endpoint.should.contains('://');
   });
 });
 
