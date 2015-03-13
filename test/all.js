@@ -1,37 +1,63 @@
 "use strict";
 
-var assert = require("assert"),
-    debug = require("debug")("tests"),
-    Client = require("..");
+var _ = require('lodash'),
+    chai = require('chai'),
+    debug = require('debug')('tests'),
+    Client = require('..'),
+    should = chai.should();
 
-describe("[client]", function() {
+
+var inspect = function(name, obj) {
+  debug(name, util.inspect(obj, {showHidden: false, depth: null}));
+};
+
+
+suite("[client]", function() {
   var client;
 
-  beforeEach(function() {
-    client = new Client();
+  setup(function() {
+    var options = {};
+    client = new Client(options);
   });
 
-  it("should successfully execute GET /", function(next) {
-    client.get("/")
-      .then(function(res) {
-        debug('res', res);
-        next();
-      }, function(err) {
-        debug('err', err);
-        assert();
-      });
+  teardown(function() {
+    client = null;
   });
 
-  /*
-  it("should fetch the servers list", function(next) {
-    client.get("/servers")
-      .then(function(res) {
-        debug('res', res);
-        next();
-      }, function(err) {
-        debug('err', err);
-      }, function(progress) {
-      });
+  suite("#get", function() {
+    test("should successfully execute GET /", function(done) {
+      this.timeout(5000);
+      client.get("/").then(
+        function(res) {
+          inspect('res', res);
+          try {
+            // (res.body....).should.equal(0);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        },
+        function(err) {
+          inspect('err', err);
+          done(err);
+        });
+    });
+
+    test("should fetch the servers list", function(done) {
+      client.get("/servers").then(
+        function(res) {
+          inspect('res', res);
+          try {
+            // (res.body....).should.equal(0);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        },
+        function(err) {
+          inspect('err', err);
+          done(err);
+        });
+    });
   });
-   */
 });
