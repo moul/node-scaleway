@@ -8,6 +8,7 @@ var Client = require('..'),
 var client = new Client();
 
 
+// Parsing arguments
 var data = {
   organization: argv.organization || client.config.organization,
   name: argv.name || 'node-onlinelabs server'
@@ -33,13 +34,37 @@ if (argv.tags) {
 }
 
 
+// API interractions
+console.log('Creating server...');
 client.post('/servers', data).then(
   function(res) {
-    console.log('Server created: ',
-                util.inspect(res.body.server, {
-                  showHidden: false, depth: null
-                }));
+    console.log(
+      'Server created: ',
+      util.inspect(res.body.server, { showHidden: false, depth: null })
+    );
+
+    // Starting server
+    if (argv.start) {
+      console.log('Starting created server...');
+      client.post(
+        '/servers/' + res.body.server.id + '/action',
+        { action: 'poweron' }
+      ).then(
+        function (res) {
+          console.log('Server started');
+        },
+        function (err) {
+          console.error(
+            'Cannot start server',
+            util.inspect(err, {showHidden: false, depth: null})
+          );
+        });
+    }
+
   },
   function(err) {
-    console.error(util.inspect(err, {showHidden: false, depth: null}));
+    console.error(
+      'Cannot create server',
+      util.inspect(err, {showHidden: false, depth: null})
+    );
   });
