@@ -29,6 +29,7 @@
     "rc": "^0.5.5"
   },
   "devDependencies": {
+    "minimist": "^1.1.1",
     "mocha": "^2.1.0"
   }
 }
