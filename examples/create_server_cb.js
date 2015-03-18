@@ -46,14 +46,14 @@ client.post('/servers', data, function(err, body, statusCode, headers) {
     // Everything is OK
     console.log(
       'Server created: ',
-      util.inspect(res.body.server, { showHidden: false, depth: null })
+      util.inspect(body.server, { showHidden: false, depth: null })
     );
 
     // Starting server
     if (argv.start) {
       console.log('Starting created server...');
       client.post(
-        '/servers/' + res.body.server.id + '/action',
+        '/servers/' + body.server.id + '/action',
         { action: 'poweron' },
         function(err, body, statusCode, headers) {
           if (err) {
