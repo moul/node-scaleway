@@ -16,10 +16,60 @@ Maintained by [Manfred Touron](https://github.com/moul)
 ---
 
 Install
-=======
+-------
 
     # Install from npm
     npm install onlinelabs
+
+Examples
+--------
+
+Create a server with Node.js
+
+```js
+var Api = require('onlinelabs'),
+    client = new Api({token: '<YOUR_TOKEN>'});
+
+var data = {
+  name: 'c1',
+  organization: '<ORGANIZATION_ID>',
+  image: '<IMAGE_ID>',
+  tags: ['test', 'demo']
+};
+
+client.post('/servers', data, function(err, res) {
+  console.log(res.server);
+});
+```
+
+Create a server with Coffee-Script
+
+```coffee
+client = new require('onlinelabs')()
+
+var data =
+  name: 'c1'
+  organization: '<ORGANIZATION_ID>'
+  image: '<IMAGE_ID>'
+  tags: ['test', 'demo']
+
+client.post '/servers', data, (err, res) ->
+  console.log res.server
+```
+
+See [./examples](https://github.com/moul/node-onlinelabs/tree/master/examples) directory for more examples
+
+Documentation
+-------------
+
+Even if this SDK is designed to be developer-friendly and aim for self-service discovery, it is still recommended to read the official [API documentation](https://doc.cloud.online.net/api/).
+
+Alternative SDKs
+----------------
+
+- Official Python SDK: [online-labs/ocs-sdk](https://github.com/online-labs/ocs-sdk)
+- Cloudformation plugin, with API client in Node.js: [resin-io/onlinelabs-cloudformation](https://github.com/resin-io/onlinelabs-cloudformation)
+
 
 License
 -------
