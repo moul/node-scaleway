@@ -1,4 +1,5 @@
-var client = new require('onlinelabs')();
+var Api = require('onlinelabs'),
+    client = new Api({token: '<YOUR_TOKEN>'});
 
 var data = {
   name: 'c1',
@@ -6,6 +7,7 @@ var data = {
   image: '<IMAGE_ID>',
   tags: ['test', 'demo']
 };
+
 client.post('/servers', data, function(err, res) {
   console.log(res.server);
 });

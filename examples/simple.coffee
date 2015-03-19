@@ -1,6 +1,9 @@
-client = new require('onlinelabs')()
+Api = require 'onlinelabs'
 
-var data =
+client = new Api
+   token: '<YOUR_TOKEN>'
+
+data =
   name: 'c1'
   organization: '<ORGANIZATION_ID>'
   image: '<IMAGE_ID>'
