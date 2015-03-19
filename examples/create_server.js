@@ -52,6 +52,7 @@ client.post('/servers', data).then(
       ).then(
         function (res) {
           console.log('Server started');
+          console.debug('res', res);
         },
         function (err) {
           console.error(

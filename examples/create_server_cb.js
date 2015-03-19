@@ -48,6 +48,8 @@ client.post('/servers', data, function(err, body, statusCode, headers) {
       'Server created: ',
       util.inspect(body.server, { showHidden: false, depth: null })
     );
+    console.debug('Status code', statusCode);
+    console.debug('Headers', headers);
 
     // Starting server
     if (argv.start) {
@@ -64,7 +66,12 @@ client.post('/servers', data, function(err, body, statusCode, headers) {
             );
           } else {
             // Everything is OK
-            console.log('Server started');
+            console.log(
+              'Server started: ',
+              util.inspect(body.server, { showHidden: false, depth: null })
+            );
+            console.debug('Status code', statusCode);
+            console.debug('Headers', headers);
           }
         });
     }
