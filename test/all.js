@@ -20,8 +20,8 @@ suite('#config', function() {
     var client = new Client();
     inspect(client.config);
     client.config.should.have.property('api_endpoint');
-    client.config.should.have.property('access_key');
-    client.config.should.have.property('secret_token');
+    client.config.should.have.property('organization');
+    client.config.should.have.property('token');
   });
   test('should have an url for api_endpoint', function() {
     var client = new Client();
@@ -35,7 +35,9 @@ suite("[client]", function() {
   var client;
 
   setup(function() {
-    var options = {};
+    var options = {
+      token: null
+    };
     client = new Client(options);
   });
 
@@ -64,22 +66,22 @@ suite("[client]", function() {
         });
     });
 
-    test("should fetch the servers list", function(done) {
+    test("should raise an authentication error", function(done) {
       client.get("/servers").then(
         function(res) {
           inspect('res', res);
+          done(res);
+        },
+        function(err) {
+          inspect('err', err);
           try {
-            (res.statusCode).should.equal(401);
-            (res.headers['content-type']).should.equal('application/json');
-            (res.body.type).should.equal('invalid_auth');
+            (err.statusCode).should.equal(401);
+            (err.headers['content-type']).should.equal('application/json');
+            (err.output.type).should.equal('invalid_auth');
             done();
           } catch (e) {
             done(e);
           }
-        },
-        function(err) {
-          inspect('err', err);
-          done(err);
         });
     });
   });
