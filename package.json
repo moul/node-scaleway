@@ -29,7 +29,10 @@
     "rc": "^1.0.0"
   },
   "devDependencies": {
+    "browserify": "^9.0.3",
+    "exorcist": "^0.1.6",
     "minimist": "^1.1.1",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "uglifyify": "^3.0.1"
   }
 }
