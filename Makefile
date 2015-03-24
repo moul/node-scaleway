@@ -22,7 +22,7 @@ $(BUNDLE):	$(BROWSER_ENTRY) $(SOURCES) Makefile
 		-x lodash \
 		-x debug \
 		-x rc \
-		-x httpinvoke \
+		-x request-promise \
 		$(BROWSER_ENTRY) | $(EXORCIST) $(MAP) > $@.tmp
 	@test -s $@.tmp
 	mv $@.tmp $@
