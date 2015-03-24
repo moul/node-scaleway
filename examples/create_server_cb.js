@@ -36,7 +36,7 @@ if (argv.tags) {
 
 // API interractions
 console.log('Creating server...');
-client.post('/servers', data, function(err, body, statusCode, headers) {
+client.post('/servers', data, function(err, res) {
   if (err) {
     console.error(
       'Cannot create server',
@@ -46,18 +46,16 @@ client.post('/servers', data, function(err, body, statusCode, headers) {
     // Everything is OK
     console.log(
       'Server created: ',
-      util.inspect(body.server, { showHidden: false, depth: null })
+      util.inspect(res.body.server, { showHidden: false, depth: null })
     );
-    console.debug('Status code', statusCode);
-    console.debug('Headers', headers);
 
     // Starting server
     if (argv.start) {
       console.log('Starting created server...');
       client.post(
-        '/servers/' + body.server.id + '/action',
+        '/servers/' + res.body.server.id + '/action',
         { action: 'poweron' },
-        function(err, body, statusCode, headers) {
+        function(err, res) {
           if (err) {
             // Failed
             console.error(
@@ -68,10 +66,8 @@ client.post('/servers', data, function(err, body, statusCode, headers) {
             // Everything is OK
             console.log(
               'Server started: ',
-              util.inspect(body.server, { showHidden: false, depth: null })
+              util.inspect(res.body.task, { showHidden: false, depth: null })
             );
-            console.debug('Status code', statusCode);
-            console.debug('Headers', headers);
           }
         });
     }

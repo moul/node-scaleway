@@ -36,8 +36,8 @@ if (argv.tags) {
 
 // API interractions
 console.log('Creating server...');
-client.post('/servers', data).then(
-  function(res) {
+client.post('/servers', data)
+  .then(function(res) {
     console.log(
       'Server created: ',
       util.inspect(res.body.server, { showHidden: false, depth: null })
@@ -49,21 +49,19 @@ client.post('/servers', data).then(
       client.post(
         '/servers/' + res.body.server.id + '/action',
         { action: 'poweron' }
-      ).then(
-        function (res) {
-          console.log('Server started');
-          console.debug('res', res);
-        },
-        function (err) {
+      )
+        .then(function (res) {
+          console.log('Server started', res.body.task);
+        })
+        .catch(function (err) {
           console.error(
             'Cannot start server',
             util.inspect(err, {showHidden: false, depth: null})
           );
         });
     }
-
-  },
-  function(err) {
+  })
+  .catch(function(err) {
     console.error(
       'Cannot create server',
       util.inspect(err, {showHidden: false, depth: null})

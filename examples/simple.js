@@ -9,5 +9,5 @@ var data = {
 };
 
 client.post('/servers', data, function(err, res) {
-  console.log(res.server);
+  console.log(res.body.server);
 });
