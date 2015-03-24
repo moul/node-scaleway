@@ -48,41 +48,37 @@ suite("[client]", function() {
   suite("#get", function() {
     test("should successfully execute GET /", function(done) {
       this.timeout(5000);
-      client.get("/").then(
-        function(res) {
-          inspect('res', res);
-          try {
-            (res.statusCode).should.equal(200);
-            (res.headers['content-type']).should.equal('application/json');
-            (res.body.api).should.equal('api-compute');
-            done();
-          } catch (e) {
-            done(e);
-          }
-        },
-        function(err) {
-          inspect('err', err);
-          done(err);
-        });
+      client.get("/").then(function(res) {
+        inspect('res', res);
+        try {
+          (res.statusCode).should.equal(200);
+          (res.headers['content-type']).should.equal('application/json');
+          (res.body.api).should.equal('api-compute');
+          done();
+        } catch (e) {
+          done(e);
+        }
+      }).catch(function(err) {
+        inspect('err', err);
+        done(err);
+      });
     });
 
     test("should raise an authentication error", function(done) {
-      client.get("/servers").then(
-        function(res) {
-          inspect('res', res);
-          done(res);
-        },
-        function(err) {
-          inspect('err', err);
-          try {
-            (err.statusCode).should.equal(401);
-            (err.headers['content-type']).should.equal('application/json');
-            (err.output.type).should.equal('invalid_auth');
-            done();
-          } catch (e) {
-            done(e);
-          }
-        });
+      client.get("/servers").then(function(res) {
+        inspect('res', res);
+        done(res);
+      }).catch(function(err) {
+        inspect('err', err);
+        try {
+          (err.statusCode).should.equal(401);
+          (err.response.headers['content-type']).should.equal('application/json');
+          (err.error.type).should.equal('invalid_auth');
+          done();
+        } catch (e) {
+          done(e);
+        }
+      });
     });
   });
 });
