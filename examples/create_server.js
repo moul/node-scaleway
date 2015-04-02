@@ -11,7 +11,7 @@ var client = new Client();
 // Parsing arguments
 var data = {
   organization: argv.organization || client.config.organization,
-  name: argv.name || 'node-onlinelabs server'
+  name: argv.name || 'node-scaleway server'
 };
 if (argv.bootscript) {
   data.bootscript = argv.bootscript;

@@ -1,14 +1,14 @@
-# node-onlinelabs
+# node-scaleway
 
-[![Build Status (Travis)](https://travis-ci.org/moul/node-onlinelabs.svg?branch=master)](https://travis-ci.org/moul/node-onlinelabs)
-[![Dependency Status](https://david-dm.org/moul/node-onlinelabs.svg?theme=shields.io)](https://david-dm.org/moul/node-onlinelabs)
-[![Total views](https://sourcegraph.com/api/repos/github.com/moul/node-onlinelabs/counters/views.svg)](https://sourcegraph.com/github.com/moul/node-onlinelabs)
-[![Views in the last 24 hours](https://sourcegraph.com/api/repos/github.com/moul/node-onlinelabs/counters/views-24h.svg)](https://sourcegraph.com/github.com/moul/node-onlinelabs)
-[![Code Climate](https://codeclimate.com/github/moul/node-onlinelabs/badges/gpa.svg)](https://codeclimate.com/github/moul/node-onlinelabs)
+[![Build Status (Travis)](https://travis-ci.org/moul/node-scaleway.svg?branch=master)](https://travis-ci.org/moul/node-scaleway)
+[![Dependency Status](https://david-dm.org/moul/node-scaleway.svg?theme=shields.io)](https://david-dm.org/moul/node-scaleway)
+[![Total views](https://sourcegraph.com/api/repos/github.com/moul/node-scaleway/counters/views.svg)](https://sourcegraph.com/github.com/moul/node-scaleway)
+[![Views in the last 24 hours](https://sourcegraph.com/api/repos/github.com/moul/node-scaleway/counters/views-24h.svg)](https://sourcegraph.com/github.com/moul/node-scaleway)
+[![Code Climate](https://codeclimate.com/github/moul/node-scaleway/badges/gpa.svg)](https://codeclimate.com/github/moul/node-scaleway)
 
-[![NPM Badge](https://nodei.co/npm/onlinelabs.png)](https://npmjs.org/package/onlinelabs)
+[![NPM Badge](https://nodei.co/npm/scaleway.png)](https://npmjs.org/package/scaleway)
 
-[Online Labs](https://labs.online.net/) API Node.js client.
+[Scaleway](https://www.scaleway.com/) API Node.js client.
 It wraps the HTTP api library described [here](https://github.com/node-gitlab/gitlabhq/tree/master/doc/api).
 
 Maintained by [Manfred Touron](https://github.com/moul)
@@ -19,7 +19,7 @@ Install
 -------
 
     # Install from npm
-    npm install onlinelabs
+    npm install scaleway
 
 Examples
 --------
@@ -27,7 +27,7 @@ Examples
 Create a server with Node.js
 
 ```js
-var Api = require('onlinelabs'),
+var Api = require('scaleway'),
     client = new Api({token: '<YOUR_TOKEN>'});
 
 var data = {
@@ -45,7 +45,7 @@ client.post('/servers', data, function(err, res) {
 Create a server with Coffee-Script
 
 ```coffee
-client = new require('onlinelabs')()
+client = new require('scaleway')()
 
 var data =
   name: 'c1'
@@ -57,21 +57,21 @@ client.post '/servers', data, (err, res) ->
   console.log res.server
 ```
 
-See [./examples](https://github.com/moul/node-onlinelabs/tree/master/examples) directory for more examples
+See [./examples](https://github.com/moul/node-scaleway/tree/master/examples) directory for more examples
 
 Documentation
 -------------
 
-Even if this SDK is designed to be developer-friendly and aim for self-service discovery, it is still recommended to read the official [API documentation](https://doc.cloud.online.net/api/).
+Even if this SDK is designed to be developer-friendly and aim for self-service discovery, it is still recommended to read the official [API documentation](https://developer.scaleway.com).
 
 Alternative SDKs
 ----------------
 
 - Official Python SDK: [online-labs/ocs-sdk](https://github.com/online-labs/ocs-sdk)
-- Cloudformation plugin, with API client in Node.js: [resin-io/onlinelabs-cloudformation](https://github.com/resin-io/onlinelabs-cloudformation)
+- Cloudformation plugin, with API client in Node.js: [resin-io/scaleway-cloudformation](https://github.com/resin-io/scaleway-cloudformation)
 
 
 License
 -------
 
-[MIT](https://github.com/moul/node-onlinelabs/blob/master/LICENSE.md)
+[MIT](https://github.com/moul/node-scaleway/blob/master/LICENSE.md)

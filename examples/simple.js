@@ -1,4 +1,4 @@
-var Api = require('onlinelabs'),
+var Api = require('scaleway'),
     client = new Api({token: '<YOUR_TOKEN>'});
 
 var data = {

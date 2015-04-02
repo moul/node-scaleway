@@ -1,4 +1,4 @@
-Api = require 'onlinelabs'
+Api = require 'scaleway'
 
 client = new Api
    token: '<YOUR_TOKEN>'

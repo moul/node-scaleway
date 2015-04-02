@@ -1,16 +1,17 @@
 {
-  "name": "onlinelabs",
+  "name": "scaleway",
   "version": "0.4.0",
-  "description": "Online-Labs API client",
+  "description": "Scaleway.com API client",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --reporter spec --ui tdd --bail --check-leaks ./test/all.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:moul/node-onlinelabs"
+    "url": "git@github.com:moul/node-scaleway"
   },
   "keywords": [
+    "Scaleway",
     "OnlineLabs",
     "API",
     "client"
@@ -18,9 +19,9 @@
   "author": "Manfred Touron <m@42.am>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moul/node-onlinelabs/issues"
+    "url": "https://github.com/moul/node-scaleway/issues"
   },
-  "homepage": "https://github.com/moul/node-onlinelabs",
+  "homepage": "https://github.com/moul/node-scaleway",
   "dependencies": {
     "debug": "^2.1.3",
     "request-promise": "^0.4.1",
