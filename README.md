@@ -67,7 +67,7 @@ Even if this SDK is designed to be developer-friendly and aim for self-service d
 Alternative SDKs
 ----------------
 
-- Official Python SDK: [online-labs/ocs-sdk](https://github.com/online-labs/ocs-sdk)
+- Official Python SDK: [scaleway/python-scaleway](https://github.com/scaleway/python-scaleway)
 - Cloudformation plugin, with API client in Node.js: [resin-io/scaleway-cloudformation](https://github.com/resin-io/scaleway-cloudformation)
 
 
