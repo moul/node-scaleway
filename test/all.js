@@ -71,9 +71,9 @@ suite("[client]", function() {
       }).catch(function(err) {
         inspect('err', err);
         try {
-          (err.statusCode).should.equal(401);
-          (err.response.headers['content-type']).should.equal('application/json');
-          (err.error.type).should.equal('invalid_auth');
+          (err.res.statusCode).should.equal(401);
+          (err.res.headers['content-type']).should.equal('application/json');
+          (err.body.type).should.equal('invalid_auth');
           done();
         } catch (e) {
           done(e);
