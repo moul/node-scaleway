@@ -18,7 +18,7 @@ var inspect = function(name, obj) {
 suite('#config', function() {
   test('should have a minimal configuration', function() {
     var client = new Client();
-    inspect(client.config);
+    inspect('client', client);
     client.config.should.have.property('api_endpoint');
     client.config.should.have.property('organization');
     client.config.should.have.property('token');
