@@ -1,6 +1,6 @@
 {
   "name": "scaleway",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Scaleway.com API client",
   "main": "lib/index.js",
   "scripts": {
