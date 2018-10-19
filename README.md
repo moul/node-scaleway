@@ -6,7 +6,7 @@
 [![Views in the last 24 hours](https://sourcegraph.com/api/repos/github.com/moul/node-scaleway/counters/views-24h.svg)](https://sourcegraph.com/github.com/moul/node-scaleway)
 [![Code Climate](https://codeclimate.com/github/moul/node-scaleway/badges/gpa.svg)](https://codeclimate.com/github/moul/node-scaleway)
 
-[![NPM Badge](https://nodei.co/npm/scaleway.png)](https://npmjs.org/package/scaleway)
+[![NPM Badge](https://nodei.co/npm/scaleway.png)](https://npmjs.org/package/scaleway) [![GuardRails badge](https://badges.production.guardrails.io/moul/node-scaleway.svg)](https://www.guardrails.io)
 
 [Scaleway](https://www.scaleway.com/) API Node.js client.
 It wraps the HTTP api library described [here](https://github.com/node-gitlab/gitlabhq/tree/master/doc/api).
